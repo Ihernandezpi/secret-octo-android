@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="adreammexico.com.a4adream.MainActivityFragment"
+    tools:showIn="@layout/activity_main">
+
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/sign_in_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteY="0dp"
+        tools:layout_editor_absoluteX="0dp" />
+    <Button
+        android:id="@+id/btnSingout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|center_horizontal"
+        android:layout_weight="1"
+        android:text="Sing out"
+        app:layout_anchor="@+id/include"
+        app:layout_anchorGravity="center_vertical|center_horizontal"
+        tools:layout_editor_absoluteY="0dp"
+        android:layout_marginLeft="148dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="148dp" />
+
+    <Button
+        android:id="@+id/btngetUserInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_vertical|right"
+        android:layout_weight="1"
+        android:text="Show info"
+        tools:layout_editor_absoluteY="0dp"
+        android:layout_marginLeft="246dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginStart="246dp" />
+
+    <ListView
+        android:id="@+id/listView"
+        android:layout_width="340dp"
+        android:layout_height="384dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSingout"
+        app:layout_constraintVertical_bias="0.042"
+        app:layout_constraintHorizontal_bias="0.6" />
+
+</android.support.constraint.ConstraintLayout>
