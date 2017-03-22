@@ -70,13 +70,15 @@ public class MainActivity extends AppCompatActivity implements
             }
         });
 
+
+
+
         ListView listView = (ListView)findViewById(R.id.listView);
-      /*  values.add("Android List View");
-        values.add("Adapter implementation");
-        values.add("Android nope");
-        */
+
         adapter = new ArrayAdapter<Product>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, values);
+
+
 
         listView.setAdapter(adapter);
 
@@ -114,6 +116,8 @@ public class MainActivity extends AppCompatActivity implements
                 .enableAutoManage(this /* FragmentActivity */, this /* OnConnectionFailedListener */)
                 .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
                 .build();
+
+
 
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
@@ -209,8 +213,10 @@ public class MainActivity extends AppCompatActivity implements
     //Base de datos
 
     public void initBD(){
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("products");
+
         ChildEventListener childEventListener = new ChildEventListener() {
             @Override
             public void onChildAdded(DataSnapshot dataSnapshot, String previousChildName) {
@@ -219,6 +225,7 @@ public class MainActivity extends AppCompatActivity implements
                     Product product = dataSnapshot.getValue(Product.class);
                     product.idProduct = dataSnapshot.getKey();
                     values.add(product);
+
                     adapter.notifyDataSetChanged();
 
                 }catch (Exception e){
@@ -234,11 +241,17 @@ public class MainActivity extends AppCompatActivity implements
                 // comment and if so displayed the changed comment.
 
                 String commentKey = dataSnapshot.getKey();
+               /* for(int i =0;i<values.size();i++){
+                    Product p = values.get(i);
+                }*/
 
                 for (Product p: values){
                     if(p.idProduct.equals(commentKey)){
+
                         p = dataSnapshot.getValue(Product.class);
+
                         adapter.notifyDataSetChanged();
+
                         break;
                     }
                 }
@@ -283,9 +296,12 @@ public class MainActivity extends AppCompatActivity implements
         };
         myRef.addChildEventListener(childEventListener);
     }
+
     @IgnoreExtraProperties
-    public static class Product{ //La declare estatica por que no queria declararla enun archivo fuera...
+    public static class Product{ //La declare estatica por que no queria declararla en un archivo fuera...
+
         public String idProduct;
+
         public String id;
         public String name;
         public String price;
@@ -302,9 +318,12 @@ public class MainActivity extends AppCompatActivity implements
             this.unitprice = unitprice;
         }
 
+
+
+
         @Override
         public String toString() {
-            return this.name;
+            return this.name + this.price;
         }
     }
     /*
